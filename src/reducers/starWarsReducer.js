@@ -16,12 +16,11 @@ export const charsReducer = (state = initialState, action) => {
         error: ''
       }
     case SUCCESS:
-      console.log(state.characters)
       return {
         ...state,
+        characters: [...action.payload],
         isLoading: false,
-        error: '',
-        characters: action.payload
+        error: ''
       }
     case FAILURE:
       return {

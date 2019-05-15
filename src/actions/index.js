@@ -12,16 +12,17 @@ export const getCharacters = () => dispatch => {
   dispatch({ type: LOADING });
   axios.get('https://swapi.co/api/people/')
     .then(res => {
+      console.log(res)
       dispatch({
         type: SUCCESS,
-        payload: res.results
+        payload: res.data.results
       })
     })
     .catch(err => {
       console.log(err)
       dispatch({
         type: FAILURE,
-        payload: { err }
+        payload: err
       });
     })
 }
